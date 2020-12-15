@@ -156,7 +156,7 @@ class CromwellServerExecutor(Executor, CromwellHelperMixin):
                 except:
                     LOG.exception("Error closing file %s", fh)
 
-        time.sleep(3)
+        time.sleep(10)
         self._poll_until_terminal(
             run_id, target, inputs_dict, kwargs.get("timeout", DEFAULT_POLLING_TIMEOUT)
         )
