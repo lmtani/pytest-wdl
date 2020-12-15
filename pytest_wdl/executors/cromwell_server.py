@@ -1,4 +1,5 @@
 import json
+import time
 from pathlib import Path
 from typing import IO, Optional, Sequence, Union
 
@@ -155,6 +156,7 @@ class CromwellServerExecutor(Executor, CromwellHelperMixin):
                 except:
                     LOG.exception("Error closing file %s", fh)
 
+        time.sleep(3)
         self._poll_until_terminal(
             run_id, target, inputs_dict, kwargs.get("timeout", DEFAULT_POLLING_TIMEOUT)
         )
